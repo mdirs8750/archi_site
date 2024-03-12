@@ -1,0 +1,105 @@
+{% comment %} {% extends "base.html" %} {% endcomment %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+
+{% load static %}
+{% block body %}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    sign up
+  </button>
+  
+  Modal 
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="{% url 'test' %}" method="POST">
+            {% csrf_token %}
+            enter Name<input type="text" name="namec">
+            <br>
+            enter last<input type="text" name="names"> 
+
+
+            <div class="row">
+              <div class="col">
+                <label for="fname">First Name</label>
+                <input type="text" class="form-control" placeholder="First name" aria-label="First name" name="sfname">
+              </div>
+              <div class="col">
+                <label for="lname">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name="slname">
+              </div>
+            </div>
+            <div class="row mt-2">
+              <div class="col">
+                <label for="sage">Age</label>
+                <input type="int" class="form-control" placeholder="Age" name="sage">
+              </div>
+              <div class="col">
+                <label for="scontact">Contact</label>
+                <input type="int" class="form-control" placeholder="Contact No." name="scontact">
+              </div>
+            </div>
+            <div class="row mt-2">
+            <div class="col">
+              <label for="semail">Email</label>
+              <input type="email" class="form-control" placeholder="Email" name="semail">
+            </div>
+            <div class="col">
+              <label for="spassword">Password</label>
+              <input type="password" class="form-control" placeholder="Password" name="spassword">
+            </div>
+            </div>
+            <br> 
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary" value="save">Save</button>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>

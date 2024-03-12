@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+{% block body %}
+    {% comment %} <p class="p_home"> This home page</p> {% endcomment %}
+     {% comment %} here we are adding crousal copying from bootstrap  {% endcomment %}
+     <div class="conatiner m-3">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'images/acer.webp' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/alaska.webp' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/holidays.webp' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/poco.webp' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'images/vistara.webp' %}" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+     </div> 
+
+     {% comment %} gere we presenting the {categories} in for loop but the problem is that same link is goinon evry anchor {% endcomment %}
+     <div class="container">
+      <div class="row">
+        {% for cate in category %}
+        <div class="col justify-content-center">
+          <!--<a href="#{{category.id}}" >--> <!--here we are unable see category id in url-->
+          <a href="?category_id={{cate.id}}" > <!--here we are able to see category id in url which will to show product according to the category means mens to mens ke page pe redirect kre usi se related products dikhaye-->
+          {% comment %} <!-- <a href="{% url "product" %}" > --> {% endcomment %}
+          <img src="{{cate.category_img.url}}" class="img_thumbnail" alt="..." width=100 height=100>
+            <br>
+            {{cate.category_name}}
+          </a>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    {% comment %} this is for showing the products {% endcomment %}
+    <div class="container">
+      <div class="row">
+        {% for prod in feproduct %}
+        <div class="col justify-content-center">
+          <div class="card" style="width: 18rem;">
+            <div class="img_thumbnail">
+            <img src="{{prod.prod_image.url}}" class="card-img-top" alt="..." >
+            </div>
+            <div class="card-body">
+              <h5 class="card-title fonts">{{prod.prod_name}}</h5>
+              <h5 class="card-title fonts">${{prod.prod_price}}</h5>
+              <p class="card-text fonts" >{{prod.prod_discription}}</p>
+              <a href="#" class="btn btn-primary">Add to Cart</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    
+    {% endblock body %}
+
+
+
+
+
+
+
+
+
+
+    

@@ -1,0 +1,30 @@
+
+
+
+
+
+testing another
+    <div> 
+        <form action="" method="POST">
+            {% csrf_token %}   <!--   after creating these input go back to calling functions of this page and write code for to save this input data & keep on mind form method POST OR GET  -->
+             <label for="fname">First Name</label>  
+            <input type="text" name="fname" id="" placeholder="Enter Your First name......">
+            <br>
+            <br>
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" id="" placeholder="Enter Your Last name......">
+            <br><br>
+            <input type="submit" value="Save">
+        </form> 
+        <br>
+        <br>
+        <br>
+        <br>
+        {{fetched}} 
+        {% comment %} This key is using get method for fetching data it does'nt require looping (U can pass the key.field name to whatever you want to show) {% endcomment %}
+         {% for i in fetched %}
+            <h2>{{i.first_name}}</h2>
+            <h3>{{i.last_name}}</h3>
+        {% endfor %} 
+         {{fetched}} 
+    </div>
